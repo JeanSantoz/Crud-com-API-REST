@@ -1,0 +1,12 @@
+**Model
+
+-Product: id, nome, quantidade, preço, observações.
+
+**Repository
+
+-ProductRepository: obterTodos, obterPorId, adicionar, atualizar, deletar.
+
+**Services
+-ProductService: 
+
+**Controller

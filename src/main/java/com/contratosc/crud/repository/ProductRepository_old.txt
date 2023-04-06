@@ -1,0 +1,57 @@
+package com.contratosc.crud.repository;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.stereotype.Repository;
+
+import com.contratosc.crud.model.Product;
+
+
+public class ProductRepository_old {
+    
+    private List<Product> produtos = new ArrayList<Product>();
+    private Integer id = 0;
+
+    /**
+     * Método para retornar uma lista de produtos
+     * @return Lista de produtos
+     */
+    public List<Product> findAll(){
+        return produtos;
+    }
+
+    /**
+     * Retorna produto referente ao id informado
+     * @param id
+     * @return
+     */
+    public Optional<Product> findById(Integer id){
+        return produtos
+        .stream()
+        .filter(product -> product.getId() == id)
+        .findFirst();
+        
+    }
+
+    public Product addProduct(Product produto){
+
+        id++;
+        produto.setId(id);
+        produtos.add(produto);
+        return produto;
+    }
+
+    public void deleteProduct(Integer id){
+        produtos.removeIf(produto -> produto.getId() == id);
+    }
+
+    public Product updateProduct(Product produto){
+
+        //Optional<Product> p1 = findById(produto.getId());
+        deleteProduct(produto.getId());
+        produtos.add(produto);
+        return produto;
+    }
+}
