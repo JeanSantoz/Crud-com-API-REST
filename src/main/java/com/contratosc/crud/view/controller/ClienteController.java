@@ -1,4 +1,4 @@
-package com.contratosc.crud.controller;
+package com.contratosc.crud.view.controller;
 
 //#region imports
 import java.util.List;
